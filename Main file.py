@@ -1,6 +1,6 @@
 from time import strftime
 import requests
-import Validator
+import validator
 
 
 def line():
@@ -34,8 +34,8 @@ def actual_elo(name):
     :print: Saída de elo e divisão da solo duo e flex respectivamente.
     """
     try:
-        url = requests.get("https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + name + "?api_key=RGAPI-9f127b4e-ff42-4cd1-a0da-fca38e779fee")
-        url_elo = requests.get("https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + url.json()["id"] + "?api_key=RGAPI-9f127b4e-ff42-4cd1-a0da-fca38e779fee")
+        url = requests.get("https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + name + "?api_key=RGAPI-f6f51dc7-ef1c-4344-acc5-ba5c9bbd631e")
+        url_elo = requests.get("https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + url.json()["id"] + "?api_key=RGAPI-f6f51dc7-ef1c-4344-acc5-ba5c9bbd631e")
         print('\033[32m-Solo duo {} {}.'.format(url_elo.json()[0]["tier"], url_elo.json()[0]["rank"]))
         print('-Flex {} {}.\033[m'.format(url_elo.json()[1]["tier"], url_elo.json()[1]["rank"]))
     except KeyError:
@@ -49,10 +49,10 @@ line()
 print(f"Dia {strftime('%d')}/{strftime('%m')}/{strftime('%Y')}{strftime('%H:%M'):>22}")
 end_season()
 while True:
-    name_account = Validator.validator_of_name("Digite o nome da sua conta: ")
+    name_account = validator.validator_of_name("Digite o nome da sua conta: ")
     print(f"Os elos na fila solo duo são: ")
     actual_elo(name_account)
-    continue_names = Validator.validator_of_response("Quer conferir mais alguma conta? ")
+    continue_names = validator.validator_of_response("Quer conferir mais alguma conta? ")
     if continue_names in "n":
         break
     line()
