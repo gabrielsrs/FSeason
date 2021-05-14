@@ -3,74 +3,227 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-boxing;
+    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-body {
+section {
+    position: relative;
+    background: #f0f8ff;
+    min-height:100vh;
+    min-width: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #154367;
-    overflow: hidden;
+    transition: background 0.5s;
 }
 
-.navigation {
+section.dark {
+    background: #24292d;
+}
+
+section .card {
     position: relative;
-    width: 60px;
-    height: 60px;
+    width: 300px;
+    height: 389px;
     background: #fff;
-    transition: height 0.5s;
-    transition-delay: 0s, 0.75s;
-    z-index: 100000;
-    border-radius: 60px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+    border-radius: 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: background 0.5s;
+    flex-direction: column;
+
+}
+
+section.dark .card {
+    background: #323840;
+}
+
+section .card .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section .card .title #days {
+    margin: 10px 0;
+}
+
+section .card .title #days:hover::before {
+    content: "Dias";
+}
+
+section .card .content,
+section .card .imgText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sec .card .main_text {
+    font-weight: 500;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    text-align: center;
+    color: #2fa1ff;
+    margin-top: 13px;
+}
+
+section .card .imgText .imgBx {
+    position: relative;
+    width: 120px;
+    height: 120px;
     overflow: hidden;
+    border-radius: 50%;
 }
 
-.navigation.active {
-    height: 660px;
-    transition: height 0.5s;
-    transition-delay: 0s, 0.75s;
-}
-
-
-/*UL*/
-.navigation ul {
+section .card .imgText .imgBx img {
     position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.navigation ul li {
-    position: relative;
-    list-style: none;
-    width: 100%;
+section .card .imgText h3 span {
+    font-weight: 400;
+    color: #777;
+    font-size: 0.75em;
 }
 
-.navigation ul li:hover {
-    background: #03a9f4;
+section.dark .card .imgText h3 span {
+    color: #ccc;
 }
 
-.navigation ul li a {
-    position: relative;
-    display: block;
-    width: 100%;
+section .card .info_elo {
     display: flex;
-    text-decoration: none;
-    color: #154367;
 }
 
-.navigation ul li a .title {
+section .card .solo_duo,
+section .card .flex {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+    justify-content: center;
+}
+
+section .card ul li {
+    list-style: none;
+}
+
+section .card .text_row {
     position: relative;
-    display: block;
-    line-height: 60px;
-    text-align: center;
-    min-width: 60px;
-    white-space: nowrap;
-    font-weight: 600;
+    color: #2fa1ff;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
 }
 
-.navigation ul li a .title:hover {
+section .card .solo_duo .sci,
+section .card .flex .sci,
+section #days {
+    position: relative;
+    width: 120px;
+    height: 50px;
+    background: #e9f5ff;
+    color: #2fa1ff;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+section .card .solo_duo .sci .rank,
+section .card .flex .sci .rank {
+    z-index: -1;
+}
+
+section.dark .card .solo_duo .sci,
+section.dark .card .flex .sci,
+section.dark #days {
+    background: #404852;
+}
+
+
+section .card .solo_duo .sci:hover,
+section .card .flex .sci:hover,
+section #days:hover {
+    color:#fff
+}
+
+section .card .solo_duo .sci:hover .rank,
+section .card .flex .sci:hover .rank {
+    z-index: 1;
+}
+
+section .card .solo_duo .sci img,
+section .card .flex .sci img {
+    position: absolute;
+    width: 40px;
+}
+
+section .card .solo_duo .sci:hover img,
+section .card .flex .sci:hover img {
+    z-index: -1;
+}
+
+section .card .solo_duo .sci::before,
+section .card .flex .sci::before,
+section #days::before {
+    content: "";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #2fa1ff;
+    border-radius: 30px;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+section .card .solo_duo .sci:hover::before,
+section .card .flex .sci:hover::before,
+section #days:hover::before{
+    transform: scale(1);
+}
+
+.toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #f0f8ff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+section.dark .toggle {
+    background: #404852;
+}
+
+.toggle:before {
+    content: "\f186";
+    font-family: fontAwesome;
+    color: #2fa1ff;
+}
+
+section.dark .toggle:before {
+    content: "\f185";
     color: #fff;
 }

@@ -1,25 +1,30 @@
 from datetime import date
 
 
-def end_season():
-    try:
-        end_date = date(2020, 8, 6)
-        today = date.today()
-        difference = end_date - today
+class Endseason:
+    def __init__(self, end_date):
+        self.end_date = end_date
 
-        if int(difference.days) > 0:
-            print(f"Faltam {difference.days} dias para o final da season.")
+    def end_season(self):
+        try:
+            end_date = date(self.end_date[0], self.end_date[1], self.end_date[2])
+            today = date.today()
+            difference = end_date - today
 
-        elif not difference:
-            print(f"Acaba hoje")
+            if int(difference.days) > 0:
+                return difference.days
 
-        else:
-            print(f"Já acabou a season.")
+            elif not difference:
+                return difference.days
 
-    except:
-        print("data ainda indeterminada")
+            else:
+                return difference.days
+
+        except:
+            print("data ainda indeterminada")
 
 
-end_season()
-
-
+# d = 2021, 5, 20
+# print(d)
+# t = Endseason(end_date=d)
+# print(t.end_season())

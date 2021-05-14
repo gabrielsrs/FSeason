@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fseason.css') }}" media="screen">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -12,8 +13,21 @@
     </div>
 
     <form method="post">
+        <!--criar a regiao da li com a url-->
+        <ul class="pattern">
+            <li id="brp">
+                <a href="#">
+
+                        <span class="title">
+                            BR
+                        </span>
+
+                </a>
+            </li>
+        </ul>
+
         <div class="navigation">
-            <ul>
+            <ul class="test">
                 <li id="br">
                     <a href="#">
                         <span class="title">BR</span>
@@ -70,7 +84,6 @@
                     </a>
                 </li>
             </ul>
-
         </div>
         <div class="search">
             <!--<div class="icon"></div>-->
@@ -81,11 +94,13 @@
 
             <span class="clear" onclick="getElementById('mysearch').value = '' "></span>
         </div>
+        <button id="btn" name="region" type="submit" value="br" style="
+            width: 30px;
+            height: 30px;
+        "></button>
     </form>
 {% endblock %}
 
 {% block js %}
     <script src="static/js/region.js"></script>
 {% endblock %}
-
-

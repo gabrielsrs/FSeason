@@ -11,15 +11,15 @@ def fseason():
     if request.method == "POST":
         region = request.form.get("region")
         name = request.form.get("player_name")
-        print(name)
-        info_player = Lol(name, "br1")
+        print(region, name)
+
+        info_player = Lol(name, region)
         result = info_player.actual_elo()
 
         if result is False:
             flash("Usuárion não encontrado, tente novamente ou volte mais tarde")
             return render_template("fseason")
         else:
-            session["nickname"] = name
             for key, value in result.items():
                 session[key] = value
 
@@ -41,9 +41,14 @@ def home():
     return render_template("home.html")
 
 
-# @app.route("/region")
-# def region():
-#     return render_template("region.html")
+@app.route("/region")
+def region():
+    return render_template("region.html")
+
+
+@app.route("/select")
+def select():
+    return render_template("select.html")
 
 
 if __name__ == "__main__":

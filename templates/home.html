@@ -1,42 +1,61 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='region.css') }}" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
 {% endblock %}
 
 {% block content %}
     <section class="sec">
-        <div class="toggle"></div>
         <div class="card">
+            <div class="toggle"></div>
+
             <div class="title">
-            <h3>Dias para o Final da Season</h3>
-                <ul class="sci">
-                <li><a href="#">
-                    19
-                </a></li>
-                </ul>
+                <h3 class="main_text">Final da Season</h3>
+                <span id="days">{{ session["days"] }}</span>
             </div>
 
             <div class="content">
+
                 <div class="imgText">
                     <div class="imgBx">
                         <img src="{{ session['profile_icon'] }}" />
                     </div>
-                    <h3>
-                        {{ session["nickname"] }}<br>
+
+                    <h3 class="main_text">
+                        {{ session["nickname"] }}<br/>
                         <span>Elo Atual</span>
                     </h3>
-                </div>
-                <ul class="sci">
-                    <li><a href="#">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a></li>
 
-                    <li><a href="#">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a></li>
-                </ul>
+                </div>
+
+                <div class="info_elo">
+                    <ul class="solo_duo">
+
+                        <li class="text_row">
+                            <span>Solo Duo</span>
+                        </li>
+
+                        <li class="sci">
+                            <img src="{{ session['solo_duo_tier'] }}" />
+                            <span class="rank">{{ session["solo_duo_rank"] }} - {{ session["solo_duo_lp"] }}pdl</span>
+                        </li>
+
+                    </ul>
+
+                    <ul class="flex">
+
+                        <li class="text_row">
+                            <span>Flex</span>
+                        </li>
+
+                        <li class="sci">
+                            <img src="{{ session['flex_tier'] }}" />
+                            <span class="rank">{{ session["flex_rank"] }} - {{ session["flex_lp"] }}pdl</span>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
