@@ -16,14 +16,6 @@
         {% block header %}
         {% endblock %}
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for message in messages %}
-                    <h6>{{ category }}</h6>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-
         {% block content %}
         {% endblock %}
 

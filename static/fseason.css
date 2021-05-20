@@ -7,26 +7,32 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
+section {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #297eff;
+    background: #f0f8ff;
     flex-direction: column;
+    transition: background 0.5s;
+}
+
+section.dark {
+    background: #24292d;
 }
 
 /*LOGO*/
 
-.logo {
+section .logo {
     margin-bottom: 20px;
-    font-size: xx-large;
+    font-size: xxx-large;
     font-family: 'Lobster', cursive;
 }
 
-.logo h1 {
+.sec .logo h1 {
     font-family: 'Lobster', cursive;
     font-weight: 400;
+    color: #2fa1ff;
 }
 
 /*SEARCH*/
@@ -37,55 +43,25 @@ form {
 
 /*Sem box shadow no search, pq muda o lay out da ul quando sobe(se testar colocar de novo descomentar:
 .patern.active e no .js a criacao da classe ative do do patern)*/
-.search{
+section .search{
     position: relative;
     display: flex;
     width: 460px;
     height: 60px;
-    background: #e8f0fe;
+    background: #fff;
     border-radius: 60px;
     transition: 0.5s;
-    box-shadow: 0 0 0 5px #2573ef;
+    box-shadow: 0 5px 30px #287dfc75;
     overflow: hidden;
 }
 
-.search .icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60px;
-    height: 60px;
-    background: #e8f0fe;
-    border-radius: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    cursor: pointer;
-}
-
-.search .icon::before {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border: 3px solid #287dfc;
-    border-radius: 50%;
-    transform: translate(-4px, -4px);
-}
-
-.search .icon::after {
-    content: "";
-    position: absolute;
-    width: 3px;
-    height: 12px;
-    background: #287dfc;
-    transform: translate(6px, 6px) rotate(315deg);
+section.dark .search{
+    background: #323840;
 }
 
 .search .input {
     position: absolute;
-    width: 360px;
+    width: 330px;
     height: 60px;
     left: 60px;
     display: flex;
@@ -94,7 +70,7 @@ form {
     margin-left: 10px;
 }
 
-.search .input input {
+section .search .input input {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -102,6 +78,10 @@ form {
     outline: none;
     font-size: 18px;
     background: inherit;
+}
+
+section.dark .search .input input {
+    color: #fff;
 }
 
 .clear {
@@ -135,18 +115,62 @@ form {
     transform: rotate(315deg);
 }
 
-/*a respeito do reigion*/
-
-
-.navigation {
+/*button*/
+form .icon {
     position: absolute;
     width: 60px;
     height: 60px;
-    background: #e8f0fe;
+    background: inherit;
+    border-radius: 60px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    right: 0;
+}
+
+.search .icon::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #2fa1ff;
+    border-radius: 50%;
+    transform: translate(-4px, -4px);
+}
+
+.search .icon::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    background: #2fa1ff;
+    transform: translate(6px, 6px) rotate(315deg);
+}
+
+form .disabled{
+    cursor: no-drop;
+}
+
+
+/*a respeito do reigion*/
+
+
+section .navigation {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fff;
     transition: height 0.5s;
     transition-delay: 0s, 0.75s;
     border-radius: 60px;
     overflow: hidden;
+}
+
+section.dark .navigation {
+    background: #404852;
 }
 
 .navigation.active {
@@ -159,16 +183,21 @@ form {
 
 /*UL*/
 
-form .pattern {
+section form .pattern {
     position: absolute;
     width: 60px;
     height: 60px;
-    background: #e8f0fe;
+    background: #f0f8ff;
     transition: height 0.5s;
     transition-delay: 0s, 0.75s;
     z-index: 1;
     border-radius: 60px;
     overflow: hidden;
+}
+
+section.dark form .pattern {
+    background: #404852;
+    color: #ccc;
 }
 
 .navigation.active ul {
@@ -185,26 +214,27 @@ form .pattern {
 }
 */
 
-
-
-
 form ul li {
     position: relative;
     list-style: none;
     width: 100%;
 }
 
-form ul li:hover {
-    background: #03a9f4;
+section form ul li:hover {
+    background: #2fa1ff;
 }
 
-form ul li a {
+section form ul li a {
     position: relative;
     display: block;
     width: 100%;
     display: flex;
     text-decoration: none;
     color: #154367;
+}
+
+section.dark form ul li a {
+    color: #ccc;
 }
 
 
@@ -219,5 +249,47 @@ form ul li a .title {
 }
 
 form ul li a .title:hover {
+    color: #fff;
+}
+
+/*error message*/
+section h6 {
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #000;
+}
+
+section.dark h6 {
+    color: #ccc;
+}
+
+/*TOGGLE*/
+.toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+section.dark .toggle {
+    background: #404852;
+}
+
+.toggle:before {
+    content: "\f186";
+    font-family: fontAwesome;
+    color: #2fa1ff;
+}
+
+section.dark .toggle:before {
+    content: "\f185";
     color: #fff;
 }

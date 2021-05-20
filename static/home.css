@@ -27,7 +27,7 @@ section .card {
     width: 300px;
     height: 389px;
     background: #fff;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+    box-shadow: 0 5px 30px #287dfc75;
     border-radius: 16px;
     display: flex;
     justify-content: flex-start;
@@ -48,13 +48,14 @@ section .card .title {
     justify-content: center;
 }
 
-section .card .title #days {
+section .card .title #end_season {
     margin: 10px 0;
 }
 
-section .card .title #days:hover::before {
+/*se quebrar pegar o hover before das duas outras li e colocar aqui*/
+/*section .card .title #end_season:hover::before {
     content: "Dias";
-}
+}*/
 
 section .card .content,
 section .card .imgText {
@@ -64,7 +65,7 @@ section .card .imgText {
     flex-direction: column;
 }
 
-.sec .card .main_text {
+section .card .main_text {
     font-weight: 500;
     font-size: 1.4em;
     line-height: 1.2em;
@@ -128,7 +129,7 @@ section .card .text_row {
 
 section .card .solo_duo .sci,
 section .card .flex .sci,
-section #days {
+section #end_season {
     position: relative;
     width: 120px;
     height: 50px;
@@ -150,15 +151,54 @@ section .card .flex .sci .rank {
 
 section.dark .card .solo_duo .sci,
 section.dark .card .flex .sci,
-section.dark #days {
+section.dark #end_season {
     background: #404852;
 }
 
 
-section .card .solo_duo .sci:hover,
-section .card .flex .sci:hover,
-section #days:hover {
-    color:#fff
+section .month:hover, .month:hover::before {
+    content: "Meses";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #2fa1ff;
+    border-radius: 30px;
+    transform: scale(1);
+    transition: 0.5s;
+    color:#fff;
+}
+
+section .day:hover, .day:hover::before {
+    content: "Dias";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #2fa1ff;
+    border-radius: 30px;
+    transform: scale(1);
+    transition: 0.5s;
+    color:#fff;
+}
+
+section .hour:hover, .hour:hover::before {
+    content: "Horas";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #2fa1ff;
+    border-radius: 30px;
+    transform: scale(1);
+    transition: 0.5s;
+    color:#fff;
 }
 
 section .card .solo_duo .sci:hover .rank,
@@ -177,9 +217,8 @@ section .card .flex .sci:hover img {
     z-index: -1;
 }
 
-section .card .solo_duo .sci::before,
-section .card .flex .sci::before,
-section #days::before {
+.solo_duo .sci::before,
+.flex .sci::before {
     content: "";
     position: absolute;
     display: flex;
@@ -191,13 +230,21 @@ section #days::before {
     border-radius: 30px;
     transform: scale(0);
     transition: 0.5s;
+    color:#fff
+
+}
+
+section .card .solo_duo .sci:hover,
+section .card .flex .sci:hover {
+    color:#fff
 }
 
 section .card .solo_duo .sci:hover::before,
-section .card .flex .sci:hover::before,
-section #days:hover::before{
+section .card .flex .sci:hover::before {
     transform: scale(1);
 }
+
+
 
 .toggle {
     position: absolute;

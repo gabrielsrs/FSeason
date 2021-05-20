@@ -1,6 +1,6 @@
 const navigation = document.querySelector(".navigation");
 const btn = document.getElementById("btn")
-/*const pattern = document.querySelector(".pattern");*/
+const pattern = document.querySelector(".pattern");
 
 
 const br = document.querySelector("#br");
@@ -31,20 +31,40 @@ tr.addEventListener("click", trade)
 
 function trade() {
     navigation.classList.toggle("active");
+//    pattern.classList.toggle("active");
 
-/*    pattern.classList.toggle("active");*/
 
     $(".test li .title").click(function() {
         var currentele = $(this).html();
         $(".pattern li span").html(currentele);
         btn.value = currentele
     })
-
-
-//    var x = document.querySelector(".title").textContent;
-
 }
 
-function test() {
-    var x = document.querySelector(".title").textContent;
+//onkeyup="document.getElementById('input2').value=this.value"
+
+
+document.querySelector("#mysearch").onkeyup = function() {
+    const test = document.querySelector("#mysearch")
+    const clear = document.querySelector("#clean");
+    const btn = document.querySelector("#btn")
+
+    if(test.value.length >= 3) {
+        clear.classList.add("clear");
+        btn.disabled = false;
+        btn.classList.remove("disabled");
+
+    } else {
+        clear.classList.remove("clear");
+        btn.disabled = true;
+        btn.classList.add("disabled");
+    }
+
+    clear.onclick = function() {
+        test.value = ""
+        clear.classList.remove("clear");
+        btn.disabled = true;
+        btn.classList.add("disabled");
+    }
 }
+

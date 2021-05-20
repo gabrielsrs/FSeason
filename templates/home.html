@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='region.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
 {% endblock %}
 
 {% block content %}
-    <section class="sec">
+    <section id="sdl" class="sec">
         <div class="card">
-            <div class="toggle"></div>
+            <div id="dl" class="toggle"></div>
 
             <div class="title">
                 <h3 class="main_text">Final da Season</h3>
-                <span id="days">{{ session["days"] }}</span>
+                <span id="end_season" class="{{ session['end_season']['type'] }}">{{ session["end_season"]["status"] }}</span>
             </div>
 
             <div class="content">
@@ -38,7 +38,12 @@
 
                         <li class="sci">
                             <img src="{{ session['solo_duo_tier'] }}" />
-                            <span class="rank">{{ session["solo_duo_rank"] }} - {{ session["solo_duo_lp"] }}pdl</span>
+
+                            {% if "Unranked" in session["solo_duo_rank"] %}
+                                <span class="rank"> {{ session["solo_duo_rank"] }}</span>
+                            {% else %}
+                                <span class="rank">{{ session["solo_duo_rank"] }} - {{ session["solo_duo_lp"] }}pdl</span>
+                            {% endif %}
                         </li>
 
                     </ul>
@@ -51,7 +56,12 @@
 
                         <li class="sci">
                             <img src="{{ session['flex_tier'] }}" />
-                            <span class="rank">{{ session["flex_rank"] }} - {{ session["flex_lp"] }}pdl</span>
+
+                            {% if "Unranked" in session["flex_rank"] %}
+                                <span class="rank"> {{ session["flex_rank"] }}</span>
+                            {% else %}
+                                <span class="rank">{{ session["flex_rank"] }} - {{ session["flex_lp"] }}pdl</span>
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
@@ -60,14 +70,6 @@
         </div>
     </section>
 {% endblock %}
-
 {% block js %}
-    <script>
-        const sec = document.querySelector(".sec");
-        const toggle = document.querySelector(".toggle");
-
-        toggle.onclick = function() {
-            sec.classList.toggle("dark")
-        }
-    </script>
+    <script src="/static/js/base.js"></script>
 {% endblock %}

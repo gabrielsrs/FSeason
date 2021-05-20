@@ -5,102 +5,117 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+
 {% endblock %}
 
 {% block content %}
-    <div class="logo">
-        <h1>FSeason</h1>
-    </div>
+    <section id="sdl" class="">
+        <div id="dl" class="toggle"></div>
 
-    <form method="post">
-        <!--criar a regiao da li com a url-->
-        <ul class="pattern">
-            <li id="brp">
-                <a href="#">
+        <div class="logo">
+            <h1>FSeason</h1>
+        </div>
 
-                        <span class="title">
-                            BR
-                        </span>
+        <form method="post" autocomplete="off">
+            <!--criar a regiao da li com a url-->
+            <ul class="pattern">
+                <li id="brp">
+                    <a href="#">
 
-                </a>
-            </li>
-        </ul>
+                            <span class="title">
+                                BR
+                            </span>
 
-        <div class="navigation">
-            <ul class="test">
-                <li id="br">
-                    <a href="#">
-                        <span class="title">BR</span>
-                    </a>
-                </li>
-                <li id="eun">
-                    <a href="#">
-                        <span class="title">EUN</span>
-                    </a>
-                </li>
-                <li id="euw">
-                    <a href="#">
-                        <span class="title">EUW</span>
-                    </a>
-                </li>
-                <li id="jp">
-                    <a href="#">
-                        <span class="title">JP</span>
-                    </a>
-                </li>
-                <li id="kr">
-                    <a href="#">
-                        <span class="title">KR</span>
-                    </a>
-                </li>
-                <li id="las">
-                    <a href="#">
-                        <span class="title">LAS</span>
-                    </a>
-                </li>
-                <li id="lan">
-                    <a href="#">
-                        <span class="title">LAN</span>
-                    </a>
-                </li>
-                <li id="na">
-                    <a href="#">
-                        <span class="title">NA</span>
-                    </a>
-                </li>
-                <li id="oc">
-                    <a href="#">
-                        <span class="title">OC</span>
-                    </a>
-                </li>
-                <li id="ru">
-                    <a href="#">
-                        <span class="title">RU</span>
-                    </a>
-                </li>
-                <li id="tr">
-                    <a href="#">
-                        <span class="title">TR</span>
                     </a>
                 </li>
             </ul>
-        </div>
-        <div class="search">
-            <!--<div class="icon"></div>-->
 
-            <div class="input">
-                <input name="player_name" type="text" placeholder="Search" id="mysearch">
+            <div class="navigation">
+                <ul class="test">
+                    <li id="br">
+                        <a href="#">
+                            <span class="title">BR</span>
+                        </a>
+                    </li>
+                    <li id="eun">
+                        <a href="#">
+                            <span class="title">EUN</span>
+                        </a>
+                    </li>
+                    <li id="euw">
+                        <a href="#">
+                            <span class="title">EUW</span>
+                        </a>
+                    </li>
+                    <li id="jp">
+                        <a href="#">
+                            <span class="title">JP</span>
+                        </a>
+                    </li>
+                    <li id="kr">
+                        <a href="#">
+                            <span class="title">KR</span>
+                        </a>
+                    </li>
+                    <li id="las">
+                        <a href="#">
+                            <span class="title">LAS</span>
+                        </a>
+                    </li>
+                    <li id="lan">
+                        <a href="#">
+                            <span class="title">LAN</span>
+                        </a>
+                    </li>
+                    <li id="na">
+                        <a href="#">
+                            <span class="title">NA</span>
+                        </a>
+                    </li>
+                    <li id="oc">
+                        <a href="#">
+                            <span class="title">OC</span>
+                        </a>
+                    </li>
+                    <li id="ru">
+                        <a href="#">
+                            <span class="title">RU</span>
+                        </a>
+                    </li>
+                    <li id="tr">
+                        <a href="#">
+                            <span class="title">TR</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search">
+                <!--<div class="icon"></div>-->
+
+                <div class="input">
+                    <input name="player_name" type="text" placeholder="Search" id="mysearch">
+
+                    <span id="clean"></span>
+                </div>
+
+                <button id="btn" class="icon disabled" name="region" type="submit" value="br" disabled></button>
             </div>
 
-            <span class="clear" onclick="getElementById('mysearch').value = '' "></span>
-        </div>
-        <button id="btn" name="region" type="submit" value="br" style="
-            width: 30px;
-            height: 30px;
-        "></button>
-    </form>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <h6>{{ message }}</h6>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    </section>
+{% endblock %}
+{% block js %}
+    <script src="static/js/fseason.js"></script>
+    <script src="static/js/base.js"></script>
 {% endblock %}
 
-{% block js %}
-    <script src="static/js/region.js"></script>
-{% endblock %}
