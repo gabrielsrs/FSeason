@@ -1,10 +1,10 @@
 const navigation = document.querySelector(".navigation");
-const btn = document.getElementById("btn")
+const submit = document.getElementById("submit")
 const pattern = document.querySelector(".pattern");
 
 
 const br = document.querySelector("#br");
-const brp = document.querySelector("#brp");
+const main = document.querySelector("#main_li");
 const eun = document.querySelector("#eun");
 const euw = document.querySelector("#euw");
 const jp = document.querySelector("#jp");
@@ -17,7 +17,7 @@ const ru = document.querySelector("#ru");
 const tr = document.querySelector("#tr");
 
 br.addEventListener("click", trade)
-brp.addEventListener("click", trade)
+main.addEventListener("click", trade)
 eun.addEventListener("click", trade)
 euw.addEventListener("click", trade)
 jp.addEventListener("click", trade)
@@ -31,23 +31,18 @@ tr.addEventListener("click", trade)
 
 function trade() {
     navigation.classList.toggle("active");
-//    pattern.classList.toggle("active");
 
-
-    $(".test li .title").click(function() {
-        var currentele = $(this).html();
-        $(".pattern li span").html(currentele);
-        btn.value = currentele
+    $(".menu_region li .title").click(function() {
+        var region = $(this).html();
+        $(".main_ul li span").html(region);
+        submit.value = region
     })
 }
 
-//onkeyup="document.getElementById('input2').value=this.value"
-
-
-document.querySelector("#mysearch").onkeyup = function() {
-    const test = document.querySelector("#mysearch")
+document.querySelector("#search").onkeyup = function() {
+    const test = document.querySelector("#search")
     const clear = document.querySelector("#clean");
-    const btn = document.querySelector("#btn")
+    const btn = document.querySelector("#submit")
 
     if(test.value.length >= 3) {
         clear.classList.add("clear");

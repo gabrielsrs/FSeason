@@ -1,12 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Poppis:200,300,400,500,600,700,800,900&desplay=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
 section {
     position: relative;
     background: #f0f8ff;
@@ -34,7 +25,6 @@ section .card {
     align-items: center;
     transition: background 0.5s;
     flex-direction: column;
-
 }
 
 section.dark .card {
@@ -52,13 +42,8 @@ section .card .title #end_season {
     margin: 10px 0;
 }
 
-/*se quebrar pegar o hover before das duas outras li e colocar aqui*/
-/*section .card .title #end_season:hover::before {
-    content: "Dias";
-}*/
-
 section .card .content,
-section .card .imgText {
+section .card .img_text {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +59,7 @@ section .card .main_text {
     margin-top: 13px;
 }
 
-section .card .imgText .imgBx {
+section .card .img_text .img_container {
     position: relative;
     width: 120px;
     height: 120px;
@@ -82,7 +67,7 @@ section .card .imgText .imgBx {
     border-radius: 50%;
 }
 
-section .card .imgText .imgBx img {
+section .card .img_text .img_container img {
     position: absolute;
     top: 0;
     left: 0;
@@ -91,17 +76,17 @@ section .card .imgText .imgBx img {
     object-fit: cover;
 }
 
-section .card .imgText h3 span {
+section .card .img_text h3 span {
     font-weight: 400;
     color: #777;
     font-size: 0.75em;
 }
 
-section.dark .card .imgText h3 span {
+section.dark .card .img_text h3 span {
     color: #ccc;
 }
 
-section .card .info_elo {
+section .card .status_player {
     display: flex;
 }
 
@@ -127,8 +112,8 @@ section .card .text_row {
     font-size: 15px;
 }
 
-section .card .solo_duo .sci,
-section .card .flex .sci,
+section .card .solo_duo .info_elo,
+section .card .flex .info_elo,
 section #end_season {
     position: relative;
     width: 120px;
@@ -144,13 +129,13 @@ section #end_season {
     transition: 0.5s;
 }
 
-section .card .solo_duo .sci .rank,
-section .card .flex .sci .rank {
+section .card .solo_duo .info_elo .rank,
+section .card .flex .info_elo .rank {
     z-index: -1;
 }
 
-section.dark .card .solo_duo .sci,
-section.dark .card .flex .sci,
+section.dark .card .solo_duo .info_elo,
+section.dark .card .flex .info_elo,
 section.dark #end_season {
     background: #404852;
 }
@@ -201,24 +186,24 @@ section .hour:hover, .hour:hover::before {
     color:#fff;
 }
 
-section .card .solo_duo .sci:hover .rank,
-section .card .flex .sci:hover .rank {
+section .card .solo_duo .info_elo:hover .rank,
+section .card .flex .info_elo:hover .rank {
     z-index: 1;
 }
 
-section .card .solo_duo .sci img,
-section .card .flex .sci img {
+section .card .solo_duo .info_elo img,
+section .card .flex .info_elo img {
     position: absolute;
     width: 40px;
 }
 
-section .card .solo_duo .sci:hover img,
-section .card .flex .sci:hover img {
+section .card .solo_duo .info_elo:hover img,
+section .card .flex .info_elo:hover img {
     z-index: -1;
 }
 
-.solo_duo .sci::before,
-.flex .sci::before {
+.solo_duo .info_elo::before,
+.flex .info_elo::before {
     content: "";
     position: absolute;
     display: flex;
@@ -234,17 +219,17 @@ section .card .flex .sci:hover img {
 
 }
 
-section .card .solo_duo .sci:hover,
-section .card .flex .sci:hover {
+section .card .solo_duo .info_elo:hover,
+section .card .flex .info_elo:hover {
     color:#fff
 }
 
-section .card .solo_duo .sci:hover::before,
-section .card .flex .sci:hover::before {
+section .card .solo_duo .info_elo:hover::before,
+section .card .flex .info_elo:hover::before {
     transform: scale(1);
 }
 
-
+/*TOGGLE*/
 
 .toggle {
     position: absolute;

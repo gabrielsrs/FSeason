@@ -2,7 +2,6 @@
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fseason.css') }}" media="screen">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
@@ -10,29 +9,24 @@
 {% endblock %}
 
 {% block content %}
-    <section id="sdl" class="">
-        <div id="dl" class="toggle"></div>
+    <section id="s_black_light" class="">
+        <div id="t_black_light" class="toggle"></div>
 
         <div class="logo">
-            <h1>FSeason</h1>
+            <img src="https://fontmeme.com/permalink/210525/1eeca4cd55b855ad7180993e8968e7bc.png" alt="FSeason" border="0">
         </div>
 
         <form method="post" autocomplete="off">
-            <!--criar a regiao da li com a url-->
-            <ul class="pattern">
-                <li id="brp">
+            <ul class="main_ul">
+                <li id="main_li">
                     <a href="#">
-
-                            <span class="title">
-                                BR
-                            </span>
-
+                        <span class="title">BR</span>
                     </a>
                 </li>
             </ul>
 
             <div class="navigation">
-                <ul class="test">
+                <ul class="menu_region">
                     <li id="br">
                         <a href="#">
                             <span class="title">BR</span>
@@ -90,16 +84,15 @@
                     </li>
                 </ul>
             </div>
+
             <div class="search">
-                <!--<div class="icon"></div>-->
-
                 <div class="input">
-                    <input name="player_name" type="text" placeholder="Search" id="mysearch">
-
-                    <span id="clean"></span>
+                    <input name="player_name" type="text" placeholder="Search" id="search">
                 </div>
 
-                <button id="btn" class="icon disabled" name="region" type="submit" value="br" disabled></button>
+                <span id="clean"></span>
+
+                <button id="submit" class="icon disabled" name="region" type="submit" value="br" disabled></button>
             </div>
 
         </form>
@@ -114,6 +107,7 @@
 
     </section>
 {% endblock %}
+
 {% block js %}
     <script src="static/js/fseason.js"></script>
     <script src="static/js/base.js"></script>

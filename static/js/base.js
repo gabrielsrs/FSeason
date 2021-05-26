@@ -1,10 +1,10 @@
 function setThemeOnCookie() {
-    const section = document.querySelector("#sdl");
+    const section = document.querySelector("#s_black_light");
     section.className = lightThemeSelect() ? "sec dark" : "sec"
 }
 
 function onClickStatementToggle() {
-    document.querySelector("#dl").onclick=lightThemeSelect();
+    document.querySelector("#t_black_light").onclick=lightThemeSelect();
 }
 
 function lightThemeSelect() {
@@ -12,7 +12,7 @@ function lightThemeSelect() {
 }
 
 function toggleLightDark() {
-    const section = document.querySelector("#sdl");
+    const section = document.querySelector("#s_black_light");
     const currentState = section.className;
     const newClass = section.className == "sec dark" ? "sec" : "sec dark";
     section.className = newClass;
@@ -28,5 +28,5 @@ function toggleLightDark() {
 (function() {
     setThemeOnCookie();
     onClickStatementToggle();
-    document.querySelector("#dl").onclick=toggleLightDark
+    document.querySelector("#t_black_light").onclick=toggleLightDark
 })();

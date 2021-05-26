@@ -1,12 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Poppis:200,300,400,500,600,700,800,900&desplay=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-shadow:border-box;
-    font-family: "Poppins", sans-serif;
-}
-
 section {
     display: flex;
     justify-content: center;
@@ -22,14 +13,9 @@ section.dark {
 }
 
 /*LOGO*/
-
-section .logo {
+section .logo img {
     margin-bottom: 20px;
     font-size: xxx-large;
-    font-family: 'Lobster', cursive;
-}
-
-.sec .logo h1 {
     font-family: 'Lobster', cursive;
     font-weight: 400;
     color: #2fa1ff;
@@ -41,8 +27,6 @@ form {
     align-items: center;
 }
 
-/*Sem box shadow no search, pq muda o lay out da ul quando sobe(se testar colocar de novo descomentar:
-.patern.active e no .js a criacao da classe ative do do patern)*/
 section .search{
     position: relative;
     display: flex;
@@ -61,7 +45,7 @@ section.dark .search{
 
 .search .input {
     position: absolute;
-    width: 330px;
+    width: 310px;
     height: 60px;
     left: 60px;
     display: flex;
@@ -90,7 +74,7 @@ section.dark .search .input input {
     transform: translateY(-50%);
     width: 15px;
     height: 15px;
-    right: 15px;
+    right: 60px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -156,8 +140,6 @@ form .disabled{
 
 
 /*a respeito do reigion*/
-
-
 section .navigation {
     position: absolute;
     width: 60px;
@@ -183,7 +165,7 @@ section.dark .navigation {
 
 /*UL*/
 
-section form .pattern {
+section form .main_ul {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -195,7 +177,7 @@ section form .pattern {
     overflow: hidden;
 }
 
-section.dark form .pattern {
+section.dark form .main_ul {
     background: #404852;
     color: #ccc;
 }
@@ -205,14 +187,6 @@ section.dark form .pattern {
     left: 0;
     width: 100%;
 }
-
-
-/*
-.pattern.active {
-    position: absolute;
-    z-index: -1;
-}
-*/
 
 form ul li {
     position: relative;
@@ -253,14 +227,14 @@ form ul li a .title:hover {
 }
 
 /*error message*/
-section h6 {
+section  h6{
     margin-top: 20px;
     font-size: 17px;
     font-weight: 400;
-    color: #000;
+    color: #154367;
 }
 
-section.dark h6 {
+section.dark h6{
     color: #ccc;
 }
 

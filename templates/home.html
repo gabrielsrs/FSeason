@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block content %}
-    <section id="sdl" class="sec">
+    <section id="s_black_light" class="sec">
         <div class="card">
-            <div id="dl" class="toggle"></div>
+            <div id="t_black_light" class="toggle"></div>
 
             <div class="title">
                 <h3 class="main_text">Final da Season</h3>
@@ -17,8 +17,8 @@
 
             <div class="content">
 
-                <div class="imgText">
-                    <div class="imgBx">
+                <div class="img_text">
+                    <div class="img_container">
                         <img src="{{ session['profile_icon'] }}" />
                     </div>
 
@@ -29,14 +29,14 @@
 
                 </div>
 
-                <div class="info_elo">
+                <div class="status_player">
                     <ul class="solo_duo">
 
                         <li class="text_row">
                             <span>Solo Duo</span>
                         </li>
 
-                        <li class="sci">
+                        <li class="info_elo">
                             <img src="{{ session['solo_duo_tier'] }}" />
 
                             {% if "Unranked" in session["solo_duo_rank"] %}
@@ -54,7 +54,7 @@
                             <span>Flex</span>
                         </li>
 
-                        <li class="sci">
+                        <li class="info_elo">
                             <img src="{{ session['flex_tier'] }}" />
 
                             {% if "Unranked" in session["flex_rank"] %}
