@@ -12,7 +12,7 @@ section.dark {
     background: #24292d;
 }
 
-/*LOGO*/
+
 section .logo img {
     margin-bottom: 20px;
     font-size: xxx-large;
@@ -21,7 +21,7 @@ section .logo img {
     color: #2fa1ff;
 }
 
-/*SEARCH*/
+
 form {
     display: flex;
     align-items: center;
@@ -99,7 +99,7 @@ section.dark .search .input input {
     transform: rotate(315deg);
 }
 
-/*button*/
+
 form .icon {
     position: absolute;
     width: 60px;
@@ -139,7 +139,6 @@ form .disabled{
 }
 
 
-/*a respeito do reigion*/
 section .navigation {
     position: absolute;
     width: 60px;
@@ -162,8 +161,6 @@ section.dark .navigation {
     z-index: 1;
 }
 
-
-/*UL*/
 
 section form .main_ul {
     position: absolute;
@@ -226,7 +223,7 @@ form ul li a .title:hover {
     color: #fff;
 }
 
-/*error message*/
+
 section  h6{
     margin-top: 20px;
     font-size: 17px;
@@ -238,7 +235,7 @@ section.dark h6{
     color: #ccc;
 }
 
-/*TOGGLE*/
+
 .toggle {
     position: absolute;
     top: 10px;

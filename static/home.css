@@ -31,23 +31,12 @@ section.dark .card {
     background: #323840;
 }
 
+
 section .card .title {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-section .card .title #end_season {
-    margin: 10px 0;
-}
-
-section .card .content,
-section .card .img_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 section .card .main_text {
@@ -59,87 +48,9 @@ section .card .main_text {
     margin-top: 13px;
 }
 
-section .card .img_text .img_container {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    overflow: hidden;
-    border-radius: 50%;
+section .card .title #end_season {
+    margin: 10px 0;
 }
-
-section .card .img_text .img_container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-section .card .img_text h3 span {
-    font-weight: 400;
-    color: #777;
-    font-size: 0.75em;
-}
-
-section.dark .card .img_text h3 span {
-    color: #ccc;
-}
-
-section .card .status_player {
-    display: flex;
-}
-
-section .card .solo_duo,
-section .card .flex {
-    display: flex;
-    flex-direction: column;
-    margin: 5px 0;
-    justify-content: center;
-}
-
-section .card ul li {
-    list-style: none;
-}
-
-section .card .text_row {
-    position: relative;
-    color: #2fa1ff;
-    margin: 0 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-}
-
-section .card .solo_duo .info_elo,
-section .card .flex .info_elo,
-section #end_season {
-    position: relative;
-    width: 120px;
-    height: 50px;
-    background: #e9f5ff;
-    color: #2fa1ff;
-    margin: 0 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-    font-size: 20px;
-    transition: 0.5s;
-}
-
-section .card .solo_duo .info_elo .rank,
-section .card .flex .info_elo .rank {
-    z-index: -1;
-}
-
-section.dark .card .solo_duo .info_elo,
-section.dark .card .flex .info_elo,
-section.dark #end_season {
-    background: #404852;
-}
-
 
 section .month:hover, .month:hover::before {
     content: "Meses";
@@ -186,6 +97,101 @@ section .hour:hover, .hour:hover::before {
     color:#fff;
 }
 
+
+section .card .content,
+section .card .img_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section .card .img_text .img_container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+section .card .img_text .img_container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+section .card .img_text h3 span {
+    font-weight: 400;
+    color: #777;
+    font-size: 0.75em;
+}
+
+section.dark .card .img_text h3 span {
+    color: #ccc;
+}
+
+
+section .card .status_player {
+    display: flex;
+}
+
+section .card .solo_duo,
+section .card .flex {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+    justify-content: center;
+}
+
+section .card ul li {
+    list-style: none;
+}
+
+section .card .text_row {
+    position: relative;
+    color: #2fa1ff;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+
+section .card .solo_duo .info_elo,
+section .card .flex .info_elo,
+section #end_season {
+    position: relative;
+    width: 120px;
+    height: 50px;
+    background: #e9f5ff;
+    color: #2fa1ff;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+section .card .solo_duo .info_elo .rank,
+section .card .flex .info_elo .rank {
+    z-index: -1;
+}
+
+
+section.dark .card .solo_duo .info_elo,
+section.dark .card .flex .info_elo,
+section.dark #end_season {
+    background: #404852;
+}
+
+
 section .card .solo_duo .info_elo:hover .rank,
 section .card .flex .info_elo:hover .rank {
     z-index: 1;
@@ -229,7 +235,6 @@ section .card .flex .info_elo:hover::before {
     transform: scale(1);
 }
 
-/*TOGGLE*/
 
 .toggle {
     position: absolute;

@@ -16,21 +16,6 @@ link_region = {
     "tr": "https://tr1.api.riotgames.com",
 }
 
-items = {
-    "nickname": "",
-    "profile_icon": "",
-    "solo_duo_rank": "Unranked",
-    "solo_duo_tier": "default",
-    "solo_duo_lp": "default",
-    "flex_rank": "Unranked",
-    "flex_tier": "default",
-    "flex_lp": "default",
-    "end_season": {
-        "type": "",
-        "status": "",
-    },
-}
-
 images_elo = {
     "unranked": "../../static/images/LolEmblemImages/Emblem_Unranked.png",
     "iron": "../../static/images/LolEmblemImages/Emblem_Iron.png",
@@ -52,6 +37,21 @@ class Lol:
         self.region = region
 
     def actual_elo(self):
+        items = {
+            "nickname": "",
+            "profile_icon": "",
+            "solo_duo_rank": "Unranked",
+            "solo_duo_tier": "default",
+            "solo_duo_lp": "default",
+            "flex_rank": "Unranked",
+            "flex_tier": "default",
+            "flex_lp": "default",
+            "end_season": {
+                "type": "",
+                "status": "",
+            },
+        }
+
         try:
             url = requests.get(f"{link_region[self.region.lower()]}/lol/summoner/v4/summoners/by-name/{self.name}", params=LolAPI.apikey).json()
 
