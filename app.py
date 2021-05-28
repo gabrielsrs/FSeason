@@ -6,6 +6,7 @@ app = Flask(__name__)
 app.secret_key = "SecretKey"
 
 
+@app.route("/")
 @app.route("/fseason", methods=["POST", "GET"])
 def fseason():
     if request.method == "POST":
