@@ -21,7 +21,7 @@ function toggleLightDark() {
     endDate.setFullYear(endDate.getFullYear() + 10);
 
 
-    document.cookie = "theme=" + (newClass == "sec" ? "sec" : "sec dark") + "; Expires=" + endDate + "; domain=127.0.0.1; path=/;"
+    document.cookie = "theme=" + (newClass == "sec" ? "sec" : "sec dark") + "; Expires=" + endDate + "; domain=fseason.herokuapp.com; path=/;"
 
 }
 
