@@ -82,7 +82,7 @@ class Lol:
                     items["flex_tier"] = images_elo["unranked"]
 
             # fetch end date of season
-            date = (25, 11, 2021, 0)
+            date = ()
             data = TimeCalculator(date)
             items["end_season"]["type"] = data.date_calc()[1]
             items["end_season"]["status"] = data.date_calc()[0]
