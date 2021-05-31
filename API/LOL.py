@@ -1,6 +1,6 @@
 from TimeCalculator import TimeCalculator
 import requests
-from credentials import LolAPI
+from credentials.LolAPI import apikey
 
 link_region = {
     "br": "https://br1.api.riotgames.com",
@@ -53,15 +53,15 @@ class Lol:
         }
 
         try:
-            url = requests.get(f"{link_region[self.region.lower()]}/lol/summoner/v4/summoners/by-name/{self.name}", params=LolAPI.apikey).json()
+            url = requests.get(f"{link_region[self.region.lower()]}/lol/summoner/v4/summoners/by-name/{self.name}", params=apikey).json()
 
             img_icon = f"http://ddragon.leagueoflegends.com/cdn/11.9.1/img/profileicon/{url['profileIconId']}.png"
             items["profile_icon"] = img_icon
 
-            player_name = requests.get(f"https://americas.api.riotgames.com/riot/account/v1/accounts/by-puuid/{url['puuid']}", params=LolAPI.apikey).json()
+            player_name = requests.get(f"https://americas.api.riotgames.com/riot/account/v1/accounts/by-puuid/{url['puuid']}", params=apikey).json()
             items["nickname"] = player_name["gameName"]
 
-            url_elo = requests.get(f"{link_region[self.region.lower()]}/lol/league/v4/entries/by-summoner/{url['id']}", params=LolAPI.apikey).json()
+            url_elo = requests.get(f"{link_region[self.region.lower()]}/lol/league/v4/entries/by-summoner/{url['id']}", params=apikey).json()
 
             for json in url_elo:
                 if json["queueType"] == "RANKED_SOLO_5x5":
