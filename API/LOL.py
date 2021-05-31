@@ -1,6 +1,6 @@
 from TimeCalculator import TimeCalculator
 import requests
-from credentials import LolAPI
+# from credentials import LolAPI
 
 link_region = {
     "br": "https://br1.api.riotgames.com",
