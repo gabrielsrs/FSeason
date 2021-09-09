@@ -5,21 +5,45 @@
 
         <title>{% block title %}{% endblock %}</title>
         <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename='base.css') }}" media="screen" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         {% block head %}
         {% endblock %}
 
     </head>
 
-    <body>
+    <body id="s_black_light" class="">
+        <main>
+            <div id="t_black_light" class="toggle"></div>
 
-        {% block header %}
-        {% endblock %}
+            <nav class="navbar">
 
-        {% block content %}
-        {% endblock %}
+                <div class="nav-header">
+                    <a class="nav-logo" href="">FS</a>
+                    <button class="nav-top-toggler" type="button" data-toggle="collapse" data-target="#nav-top" aria-controls="nav-top" aria-expanded="false" aria-label="Toggle navigation"></button>
+                </div>
 
-        {% block js %}
-        {% endblock %}
+                <div class="nav-top">
+                    <ul class="nav-ul">
+                        <div class="selector">
+                            <div class="left"></div><div class="right"></div>
+                        </div>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="javascript:void(0);">
+                                <span>League of Legends</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            {% block content %}
+            {% endblock %}
+            <script src="{{ url_for('static', filename='js/base/theme.js') }}"></script>
+            <script src="{{ url_for('static', filename='js/base/nav.js') }}"></script>
+            {% block js %}
+            {% endblock %}
+        </main>
     </body>
 </html>

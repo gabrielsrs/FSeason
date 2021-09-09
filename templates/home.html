@@ -2,14 +2,11 @@
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}" media="screen" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
 {% endblock %}
 
 {% block content %}
-    <section id="s_black_light" class="sec">
+    <section class="main-content">
         <div class="card">
-            <div id="t_black_light" class="toggle"></div>
-
             <div class="title">
                 <h3 class="main_text">Final da Season</h3>
                 <span id="end_season" class="{{ session['end_season']['type'] }}">{{ session["end_season"]["status"] }}</span>
@@ -70,6 +67,4 @@
         </div>
     </section>
 {% endblock %}
-{% block js %}
-    <script src="/static/js/base.js"></script>
-{% endblock %}
+

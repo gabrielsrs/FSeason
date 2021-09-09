@@ -1,3 +1,5 @@
+//dark light theme
+
 function setThemeOnCookie() {
     const section = document.querySelector("#s_black_light");
     section.className = lightThemeSelect() ? "sec dark" : "sec"
@@ -21,7 +23,7 @@ function toggleLightDark() {
     endDate.setFullYear(endDate.getFullYear() + 10);
 
 
-    document.cookie = "theme=" + (newClass == "sec" ? "sec" : "sec dark") + "; Expires=" + endDate + "; domain=fseason.herokuapp.com; path=/;"
+    document.cookie = "theme=" + (newClass == "sec" ? "sec" : "sec dark") + "; Expires=" + endDate + "; domain=127.0.0.1; path=/;"
 
 }
 
