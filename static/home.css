@@ -1,19 +1,14 @@
-section {
+.main-content {
     position: relative;
-    background: #f0f8ff;
     min-height:100vh;
-    min-width: 100vh;
+    min-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background 0.5s;
 }
 
-section.dark {
-    background: #24292d;
-}
-
-section .card {
+.main-content .card {
     position: relative;
     width: 300px;
     height: 389px;
@@ -27,19 +22,19 @@ section .card {
     flex-direction: column;
 }
 
-section.dark .card {
+body.dark main .main-content .card {
     background: #323840;
 }
 
 
-section .card .title {
+.main-content .card .title {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-section .card .main_text {
+.main-content .card .main_text {
     font-weight: 500;
     font-size: 1.4em;
     line-height: 1.2em;
@@ -48,11 +43,11 @@ section .card .main_text {
     margin-top: 13px;
 }
 
-section .card .title #end_season {
+.main-content .card .title #end_season {
     margin: 10px 0;
 }
 
-section .month:hover, .month:hover::before {
+.main-content .month:hover, .month:hover::before {
     content: "Meses";
     position: absolute;
     display: flex;
@@ -67,7 +62,7 @@ section .month:hover, .month:hover::before {
     color:#fff;
 }
 
-section .day:hover, .day:hover::before {
+.main-content .day:hover, .day:hover::before {
     content: "Dias";
     position: absolute;
     display: flex;
@@ -82,7 +77,7 @@ section .day:hover, .day:hover::before {
     color:#fff;
 }
 
-section .hour:hover, .hour:hover::before {
+.main-content .hour:hover, .hour:hover::before {
     content: "Horas";
     position: absolute;
     display: flex;
@@ -98,15 +93,15 @@ section .hour:hover, .hour:hover::before {
 }
 
 
-section .card .content,
-section .card .img_text {
+.main-content .card .content,
+.main-content .card .img_text {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-section .card .img_text .img_container {
+.main-content .card .img_text .img_container {
     position: relative;
     width: 120px;
     height: 120px;
@@ -114,7 +109,7 @@ section .card .img_text .img_container {
     border-radius: 50%;
 }
 
-section .card .img_text .img_container img {
+.main-content .card .img_text .img_container img {
     position: absolute;
     top: 0;
     left: 0;
@@ -124,34 +119,34 @@ section .card .img_text .img_container img {
 }
 
 
-section .card .img_text h3 span {
+.main-content .card .img_text h3 span {
     font-weight: 400;
     color: #777;
     font-size: 0.75em;
 }
 
-section.dark .card .img_text h3 span {
+man.dark .main-content .card .img_text h3 span {
     color: #ccc;
 }
 
 
-section .card .status_player {
+.main-content .card .status_player {
     display: flex;
 }
 
-section .card .solo_duo,
-section .card .flex {
+.main-content .card .solo_duo,
+.main-content .card .flex {
     display: flex;
     flex-direction: column;
     margin: 5px 0;
     justify-content: center;
 }
 
-section .card ul li {
+.main-content .card ul li {
     list-style: none;
 }
 
-section .card .text_row {
+.main-content .card .text_row {
     position: relative;
     color: #2fa1ff;
     margin: 0 5px;
@@ -162,9 +157,9 @@ section .card .text_row {
 }
 
 
-section .card .solo_duo .info_elo,
-section .card .flex .info_elo,
-section #end_season {
+.main-content .card .solo_duo .info_elo,
+.main-content .card .flex .info_elo,
+.main-content #end_season {
     position: relative;
     width: 120px;
     height: 50px;
@@ -179,32 +174,32 @@ section #end_season {
     transition: 0.5s;
 }
 
-section .card .solo_duo .info_elo .rank,
-section .card .flex .info_elo .rank {
+.main-content .card .solo_duo .info_elo .rank,
+.main-content .card .flex .info_elo .rank {
     z-index: -1;
 }
 
 
-section.dark .card .solo_duo .info_elo,
-section.dark .card .flex .info_elo,
-section.dark #end_season {
+body.dark main .main-content .card .solo_duo .info_elo,
+body.dark main .main-content .card .flex .info_elo,
+body.dark main .main-content #end_season {
     background: #404852;
 }
 
 
-section .card .solo_duo .info_elo:hover .rank,
-section .card .flex .info_elo:hover .rank {
+.main-content .card .solo_duo .info_elo:hover .rank,
+.main-content .card .flex .info_elo:hover .rank {
     z-index: 1;
 }
 
-section .card .solo_duo .info_elo img,
-section .card .flex .info_elo img {
+.main-content .card .solo_duo .info_elo img,
+.main-content .card .flex .info_elo img {
     position: absolute;
     width: 40px;
 }
 
-section .card .solo_duo .info_elo:hover img,
-section .card .flex .info_elo:hover img {
+.main-content .card .solo_duo .info_elo:hover img,
+.main-content .card .flex .info_elo:hover img {
     z-index: -1;
 }
 
@@ -225,42 +220,12 @@ section .card .flex .info_elo:hover img {
 
 }
 
-section .card .solo_duo .info_elo:hover,
-section .card .flex .info_elo:hover {
+.main-content .card .solo_duo .info_elo:hover,
+.main-content .card .flex .info_elo:hover {
     color:#fff
 }
 
-section .card .solo_duo .info_elo:hover::before,
-section .card .flex .info_elo:hover::before {
+.main-content .card .solo_duo .info_elo:hover::before,
+.main-content .card .flex .info_elo:hover::before {
     transform: scale(1);
-}
-
-
-.toggle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #f0f8ff;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-section.dark .toggle {
-    background: #404852;
-}
-
-.toggle:before {
-    content: "\f186";
-    font-family: fontAwesome;
-    color: #2fa1ff;
-}
-
-section.dark .toggle:before {
-    content: "\f185";
-    color: #fff;
 }

@@ -1,3 +1,5 @@
+//dark light theme
+
 function setThemeOnCookie() {
     const section = document.querySelector("#s_black_light");
     section.className = lightThemeSelect() ? "sec dark" : "sec"
