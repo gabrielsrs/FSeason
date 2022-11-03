@@ -6,12 +6,16 @@ function test(){
   var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
   var itemPosNewAnimTop = activeItemNewAnim.position();
   var itemPosNewAnimLeft = activeItemNewAnim.position();
+
+
   $(".selector").css({
     "top":itemPosNewAnimTop.top + "px",
     "left":itemPosNewAnimLeft.left + "px",
     "height": activeWidthNewAnimHeight + "px",
     "width": activeWidthNewAnimWidth + "px"
   });
+
+
 
   $(".nav-top").on("click","li",function(e){
     $('.nav-top ul li').removeClass("active");
@@ -40,7 +44,6 @@ $(".nav-top-toggler").click(function(){
   setTimeout(function(){ test(); });
 });
 
-//colocar em outra function?
 const navTopToggler = document.querySelector(".nav-top-toggler");
 const navTop = document.querySelector(".nav-top");
 

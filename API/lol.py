@@ -1,6 +1,6 @@
-from TimeCalculator import TimeCalculator
+from services.time_calculator_service import TimeCalculator
 import requests
-from credentials.LolAPI import apikey
+from app import app
 
 link_region = {
     "br": "https://br1.api.riotgames.com",
@@ -17,16 +17,16 @@ link_region = {
 }
 
 images_elo = {
-    "unranked": "../../static/images/LolEmblemImages/Emblem_Unranked.png",
-    "iron": "../../static/images/LolEmblemImages/Emblem_Iron.png",
-    "bronze": "../../static/images/LolEmblemImages/Emblem_Bronze.png",
-    "silver": "../../static/images/LolEmblemImages/Emblem_Silver.png",
-    "gold": "../../static/images/LolEmblemImages/Emblem_Gold.png",
-    "platinum": "../../static/images/LolEmblemImages/Emblem_Platinum.png",
-    "diamond": "../../static/images/LolEmblemImages/Emblem_Diamond.png",
-    "master": "../../static/images/LolEmblemImages/Emblem_Master.png",
-    "grandmaster": "../../static/images/LolEmblemImages/Emblem_Grandmaster.png",
-    "challenger": "../../static/images/LolEmblemImages/Emblem_Challenger.png",
+    "unranked": "../../static/images/LolEmblemImages/emblem-unranked.webp",
+    "iron": "../../static/images/LolEmblemImages/emblem-iron.webp",
+    "bronze": "../../static/images/LolEmblemImages/emblem-bronze.webp",
+    "silver": "../../static/images/LolEmblemImages/emblem-silver.webp",
+    "gold": "../../static/images/LolEmblemImages/emblem-gold.webp",
+    "platinum": "../../static/images/LolEmblemImages/emblem-platinum.webp",
+    "diamond": "../../static/images/LolEmblemImages/emblem-diamond.webp",
+    "master": "../../static/images/LolEmblemImages/emblem-master.webp",
+    "grandmaster": "../../static/images/LolEmblemImages/emblem-grandmaster.webp",
+    "challenger": "../../static/images/LolEmblemImages/emblem-challenger.webp",
 }
 
 
@@ -53,25 +53,44 @@ class Lol:
         }
 
         try:
-            url = requests.get(f"{link_region[self.region.lower()]}/lol/summoner/v4/summoners/by-name/{self.name}", params=apikey).json()
+            url = requests.get(
+                f"{link_region[self.region.lower()]}/lol/summoner/v4/summoners/by-name/{self.name}",
+                headers={
+                    "X-Riot-Token": app.config["RIOT_KEY"]
+                }
+            ).json()
+
             items["nickname"] = url["name"]
 
             version = requests.get(f"https://ddragon.leagueoflegends.com/api/versions.json").json()
             img_icon = f"http://ddragon.leagueoflegends.com/cdn/{version[0]}/img/profileicon/{url['profileIconId']}.png"
             items["profile_icon"] = img_icon
 
-            url_elo = requests.get(f"{link_region[self.region.lower()]}/lol/league/v4/entries/by-summoner/{url['id']}", params=apikey).json()
+            url_elo = requests.get(
+                f"{link_region[self.region.lower()]}/lol/league/v4/entries/by-summoner/{url['id']}",
+                headers={
+                    "X-Riot-Token": app.config["RIOT_KEY"]
+                }
+            ).json()
 
             for json in url_elo:
                 if json["queueType"] == "RANKED_SOLO_5x5":
-                    items["solo_duo_rank"] = json["rank"]
                     items["solo_duo_lp"] = json["leaguePoints"]
                     items["solo_duo_tier"] = images_elo[json["tier"].lower()]
 
+                    if json['tier'] == 'MASTER' or json['tier'] == 'GRANDMASTER' or json['tier'] == 'CHALLENGER':
+                        items["solo_duo_rank"] = ""
+                    else:
+                        items["solo_duo_rank"] = json["rank"]
+
                 elif json["queueType"] == "RANKED_FLEX_SR":
-                    items["flex_rank"] = json["rank"]
                     items["flex_lp"] = json["leaguePoints"]
                     items["flex_tier"] = images_elo[json["tier"].lower()]
+
+                    if json['tier'] == 'MASTER' or json['tier'] == 'GRANDMASTER' or json['tier'] == 'CHALLENGER':
+                        items["flex_rank"] = ""
+                    else:
+                        items["flex_rank"] = json["rank"]
 
             for key, value in items.items():
                 if key == "solo_duo_tier" and value == "default":

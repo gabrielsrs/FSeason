@@ -17,26 +17,8 @@
         <main>
             <div id="t_black_light" class="toggle"></div>
 
-            <nav class="navbar">
-
-                <div class="nav-header">
-                    <a class="nav-logo" href="">FS</a>
-                    <button class="nav-top-toggler" type="button" data-toggle="collapse" data-target="#nav-top" aria-controls="nav-top" aria-expanded="false" aria-label="Toggle navigation"></button>
-                </div>
-
-                <div class="nav-top">
-                    <ul class="nav-ul">
-                        <div class="selector">
-                            <div class="left"></div><div class="right"></div>
-                        </div>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="javascript:void(0);">
-                                <span>League of Legends</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            {% block nav %}
+            {% endblock %}
 
             {% block content %}
             {% endblock %}

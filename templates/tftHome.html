@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tft.css') }}" media="screen" />
+{% endblock %}
+
+{% block nav %}
+    <nav class="navbar">
+
+        <div class="nav-header">
+            <a class="nav-logo" href="http://127.0.0.1:5000/fseason">FS</a>
+            <button class="nav-top-toggler" type="button" data-toggle="collapse" data-target="#nav-top" aria-controls="nav-top" aria-expanded="false" aria-label="Toggle navigation"></button>
+        </div>
+
+        <div class="nav-top">
+            <ul class="nav-ul">
+                <div class="selector">
+                    <div class="left"></div><div class="right"></div>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:5000/lol" onclick="load()">
+                        <span>League of Legends</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://127.0.0.1:5000/tft" onclick="load()">
+                        <span>Teamfight Tactics</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <section class="main-content">
+        <div class="content">
+            <div class="status">
+                <div class="tier">
+                    {% if session['rank'] %}
+                        <span class="rank">{{ session['rank'] }}</span>
+                    {% endif %}
+                    <img src="{{ session['tier'] }}" alt="tier">
+                </div>
+                <div class="pdl">
+                    {% if "Unranked" in session["rank"] %}
+                        <span class="text-unranked">{{ session['points'] }}</span>
+                    {% else %}
+                        <span class="text-points">{{ session['points'] }}</span>
+                        <span class="text-points">PDL</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="top-content">
+                    <div class="icon">
+                        <img src="{{ session['profile_icon'] }}" alt="icon">
+                    </div>
+                    <div class="name">
+                        <span>{{ session['nickname'] }}</span>
+                    </div>
+                </div>
+                <div class="title">
+                    <h3 class="main-text">Final da Season</h3>
+                    <span id="end-season" class="{{ session['end_season']['type'] }}">{{ session["end_season"]["status"] }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
