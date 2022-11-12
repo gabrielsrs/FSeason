@@ -1,35 +1,12 @@
 {% extends "base.html" %}
+{% from "forms.html" import  navTop %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lol.css') }}" media="screen" />
 {% endblock %}
 
 {% block nav %}
-    <nav class="navbar">
-
-        <div class="nav-header">
-            <a class="nav-logo" href="http://127.0.0.1:5000/fseason">FS</a>
-            <button class="nav-top-toggler" type="button" data-toggle="collapse" data-target="#nav-top" aria-controls="nav-top" aria-expanded="false" aria-label="Toggle navigation"></button>
-        </div>
-
-        <div class="nav-top">
-            <ul class="nav-ul">
-                <div class="selector">
-                    <div class="left"></div><div class="right"></div>
-                </div>
-                <li class="nav-item active">
-                    <a class="nav-link" href="http://127.0.0.1:5000/lol" onclick="load()">
-                        <span>League of Legends</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:5000/tft" onclick="load()">
-                        <span>Teamfight Tactics</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    {{ navTop(nav_lol='active') }}
 {% endblock %}
 
 {% block content %}
@@ -37,7 +14,16 @@
         <div class="card">
             <div class="title">
                 <h3 class="main_text">Final da Season</h3>
-                <span id="end_season" class="{{ session['end_season']['type'] }}">{{ session["end_season"]["status"] }}</span>
+                {% if session['end_season']['type'] == "null" %}
+                    <div class="outTime">
+                        <span class="time">{{ session["end_season"]["status"] }}</span>
+                    </div>
+                {% else %}
+                    <div class="end_season">
+                        <span class="time">{{ session["end_season"]["status"] }}</span>
+                        <span class="type">{{ session['end_season']['type'] }}</span>
+                    </div>
+                {% endif %}
             </div>
 
             <div class="content">

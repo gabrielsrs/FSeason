@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 from controllers.search_controller import search_controller
 from controllers.game_controller import game_controller
@@ -7,9 +7,8 @@ handle = Blueprint("handle", __name__)
 
 
 @handle.route("/", methods=["POST", "GET"])
-@handle.route("/<game>", methods=["POST", "GET"])
-def fseason(game=None):
-    return search_controller(game)
+def fseason():
+    return search_controller()
 
 
 @handle.route("/<game>/<region>/<name>")

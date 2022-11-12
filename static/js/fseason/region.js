@@ -57,4 +57,3 @@ document.querySelector("#search").onkeyup = function() {
         btn.classList.add("disabled");
     }
 }
-

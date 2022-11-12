@@ -40,7 +40,7 @@ class Tft:
         items = {
             "nickname": "",
             "profile_icon": "",
-            "rank": "Unranked",
+            "rank": "",
             "tier": "default",
             "points": "Unranked",
             "end_season": {
@@ -76,7 +76,7 @@ class Tft:
                     items["tier"] = images_elo[json["tier"].lower()]
 
                     if json['tier'] == 'MASTER' or json['tier'] == 'GRANDMASTER' or json['tier'] == 'CHALLENGER':
-                        items["rank"] = " "
+                        items["rank"] = ""
                     else:
                         items["rank"] = json["rank"]
 
@@ -85,7 +85,7 @@ class Tft:
                     items["tier"] = images_elo["unranked"]
 
             # fetch end date of season
-            date = ()
+            date = (7, 12, 2022, 12)
             data = TimeCalculator(date)
             items["end_season"]["type"] = data.date_calc()[1]
             items["end_season"]["status"] = data.date_calc()[0]

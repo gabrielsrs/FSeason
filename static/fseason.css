@@ -197,7 +197,10 @@ body.dark main .main-content form ul li a {
     color: #ccc;
 }
 
-
+body.dark form ul li a .title {
+    color: #fff;
+    background-color: #404852;
+}
 form ul li a .title {
     position: relative;
     display: block;
