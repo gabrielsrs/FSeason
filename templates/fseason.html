@@ -5,6 +5,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 {% endblock %}
 
+{% block nav %}
+    <nav class="navbar">
+
+        <div class="nav-header">
+            <div class="nav-logo">FS</div>
+            <button class="nav-top-toggler" type="button" data-toggle="collapse" data-target="#nav-top" aria-controls="nav-top" aria-expanded="false" aria-label="Toggle navigation"></button>
+        </div>
+
+        <div class="nav-top">
+            <ul class="nav-ul">
+                <li class="nav-item">
+                    <div class="nav-link" onclick="changeStatus(this)">
+                        <span title="lol">League of Legends</span>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link" onclick="changeStatus(this)">
+                        <span title="tft">Teamfight Tactics</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
 {% block content %}
     <section class="main-content">
         <div class="logo">
@@ -15,7 +40,7 @@
             <ul class="main_ul">
                 <li id="main_li">
                     <a href="#">
-                        <span class="title">BR</span>
+                        <input id="region" class="title" name="region" value="BR">
                     </a>
                 </li>
             </ul>
@@ -87,7 +112,7 @@
 
                 <span id="clean"></span>
 
-                <button id="submit" class="icon disabled" name="region" type="submit" value="br" disabled></button>
+                <button id="submit" class="icon disabled" name="game" type="submit" value="" disabled></button>
             </div>
 
         </form>

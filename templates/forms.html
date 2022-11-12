@@ -1,0 +1,24 @@
+{% macro navTop(nav_lol='', nav_tft='') %}
+        <nav class="navbar">
+
+        <div class="nav-header">
+            <div class="nav-logo">FS</div>
+            <button class="nav-top-toggler" type="button" data-toggle="collapse" data-target="#nav-top" aria-controls="nav-top" aria-expanded="false" aria-label="Toggle navigation"></button>
+        </div>
+
+        <div class="nav-top">
+            <ul class="nav-ul">
+                <li class="nav-item {{ nav_lol }}">
+                    <a class="nav-link" href="http://127.0.0.1:5000" onclick="changeStatus(this)">
+                        <span title="lol">League of Legends</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ nav_tft }}">
+                    <a class="nav-link" href="http://127.0.0.1:5000" onclick="changeStatus(this)">
+                        <span title="tft">Teamfight Tactics</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endmacro %}

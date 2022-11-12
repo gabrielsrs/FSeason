@@ -159,12 +159,12 @@ body.dark main .main-content .navigation {
     position: absolute;
     width: 60px;
     height: 60px;
-    background: #f0f8ff;
     transition: height 0.5s;
     transition-delay: 0s, 0.75s;
     z-index: 1;
     border-radius: 60px;
     overflow: hidden;
+
 }
 
 body.dark main .main-content form .main_ul {
@@ -184,10 +184,6 @@ form ul li {
     width: 100%;
 }
 
-.main-content form ul li:hover {
-    background: #2fa1ff;
-}
-
 .main-content form ul li a {
     position: relative;
     display: block;
@@ -201,7 +197,10 @@ body.dark main .main-content form ul li a {
     color: #ccc;
 }
 
-
+body.dark form ul li a .title {
+    color: #fff;
+    background-color: #404852;
+}
 form ul li a .title {
     position: relative;
     display: block;
@@ -210,12 +209,18 @@ form ul li a .title {
     min-width: 60px;
     white-space: nowrap;
     font-weight: 600;
+    color: #154367;
+    background: #f0f8ff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 form ul li a .title:hover {
     color: #fff;
+    outline: none;
+    background: #2fa1ff;
 }
-
 
 section  h6{
     margin-top: 20px;
