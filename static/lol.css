@@ -43,55 +43,10 @@ body.dark main .main-content .card {
     margin-top: 13px;
 }
 
-.main-content .card .title #end_season {
+.main-content .card .title .end_season,
+.main-content .card .title .outTime {
     margin: 10px 0;
 }
-
-.main-content .month:hover, .month:hover::before {
-    content: "Meses";
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: #2fa1ff;
-    border-radius: 30px;
-    transform: scale(1);
-    transition: 0.5s;
-    color:#fff;
-}
-
-.main-content .day:hover, .day:hover::before {
-    content: "Dias";
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: #2fa1ff;
-    border-radius: 30px;
-    transform: scale(1);
-    transition: 0.5s;
-    color:#fff;
-}
-
-.main-content .hour:hover, .hour:hover::before {
-    content: "Horas";
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: #2fa1ff;
-    border-radius: 30px;
-    transform: scale(1);
-    transition: 0.5s;
-    color:#fff;
-}
-
 
 .main-content .card .content,
 .main-content .card .img_text {
@@ -159,7 +114,8 @@ man.dark .main-content .card .img_text h3 span {
 
 .main-content .card .solo_duo .info_elo,
 .main-content .card .flex .info_elo,
-.main-content #end_season {
+.main-content .end_season,
+.outTime {
     position: relative;
     width: 120px;
     height: 50px;
@@ -172,39 +128,49 @@ man.dark .main-content .card .img_text h3 span {
     border-radius: 30px;
     font-size: 20px;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .main-content .card .solo_duo .info_elo .rank,
-.main-content .card .flex .info_elo .rank {
+.main-content .card .flex .info_elo .rank,
+.main-content .end_season .type {
     z-index: -1;
 }
 
 
 body.dark main .main-content .card .solo_duo .info_elo,
 body.dark main .main-content .card .flex .info_elo,
-body.dark main .main-content #end_season {
+body.dark main .main-content .end_season,
+body.dark main .main-content .outTime {
     background: #404852;
 }
 
 
 .main-content .card .solo_duo .info_elo:hover .rank,
-.main-content .card .flex .info_elo:hover .rank {
+.main-content .card .flex .info_elo:hover .rank,
+.main-content .end_season:hover .type {
     z-index: 1;
 }
 
 .main-content .card .solo_duo .info_elo img,
-.main-content .card .flex .info_elo img {
+.main-content .card .flex .info_elo img,
+.main-content .end_season .time {
     position: absolute;
-    width: 40px;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-content .card .solo_duo .info_elo:hover img,
-.main-content .card .flex .info_elo:hover img {
+.main-content .card .flex .info_elo:hover img,
+.main-content .end_season:hover .time {
     z-index: -1;
 }
 
 .solo_duo .info_elo::before,
-.flex .info_elo::before {
+.flex .info_elo::before,
+.main-content .end_season::before {
     content: "";
     position: absolute;
     display: flex;
@@ -221,11 +187,14 @@ body.dark main .main-content #end_season {
 }
 
 .main-content .card .solo_duo .info_elo:hover,
-.main-content .card .flex .info_elo:hover {
-    color:#fff
+.main-content .card .flex .info_elo:hover,
+.main-content .end_season:hover {
+    color: #fff;
+    background: #2fa1ff;
 }
 
 .main-content .card .solo_duo .info_elo:hover::before,
-.main-content .card .flex .info_elo:hover::before {
+.main-content .card .flex .info_elo:hover::before,
+.main-content .end_season:hover::before {
     transform: scale(1);
 }

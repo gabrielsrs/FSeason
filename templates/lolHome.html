@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% from "forms.html" import  navTop %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lol.css') }}" media="screen" />
+{% endblock %}
+
+{% block nav %}
+    {{ navTop(nav_lol='active') }}
 {% endblock %}
 
 {% block content %}
@@ -9,7 +14,16 @@
         <div class="card">
             <div class="title">
                 <h3 class="main_text">Final da Season</h3>
-                <span id="end_season" class="{{ session['end_season']['type'] }}">{{ session["end_season"]["status"] }}</span>
+                {% if session['end_season']['type'] == "null" %}
+                    <div class="outTime">
+                        <span class="time">{{ session["end_season"]["status"] }}</span>
+                    </div>
+                {% else %}
+                    <div class="end_season">
+                        <span class="time">{{ session["end_season"]["status"] }}</span>
+                        <span class="type">{{ session['end_season']['type'] }}</span>
+                    </div>
+                {% endif %}
             </div>
 
             <div class="content">
@@ -38,8 +52,10 @@
 
                             {% if "Unranked" in session["solo_duo_rank"] %}
                                 <span class="rank"> {{ session["solo_duo_rank"] }}</span>
-                            {% else %}
+                            {% elif session["solo_duo_rank"] %}
                                 <span class="rank">{{ session["solo_duo_rank"] }} - {{ session["solo_duo_lp"] }}pdl</span>
+                            {% else %}
+                                <span class="rank">{{ session["solo_duo_lp"] }}pdl</span>
                             {% endif %}
                         </li>
 
@@ -56,9 +72,12 @@
 
                             {% if "Unranked" in session["flex_rank"] %}
                                 <span class="rank"> {{ session["flex_rank"] }}</span>
-                            {% else %}
+                            {% elif session["flex_rank"]%}
                                 <span class="rank">{{ session["flex_rank"] }} - {{ session["flex_lp"] }}pdl</span>
+                            {% else %}
+                                <span class="rank">{{ session["flex_lp"] }}pdl</span>
                             {% endif %}
+
                         </li>
                     </ul>
                 </div>

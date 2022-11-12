@@ -1,10 +1,10 @@
 const navigation = document.querySelector(".navigation");
 const submit = document.getElementById("submit")
 const pattern = document.querySelector(".pattern");
+const submitRegion = document.querySelector("#region")
 
-
-const br = document.querySelector("#br");
 const main = document.querySelector("#main_li");
+const br = document.querySelector("#br");
 const eun = document.querySelector("#eun");
 const euw = document.querySelector("#euw");
 const jp = document.querySelector("#jp");
@@ -16,8 +16,8 @@ const oc = document.querySelector("#oc");
 const ru = document.querySelector("#ru");
 const tr = document.querySelector("#tr");
 
-br.addEventListener("click", trade)
 main.addEventListener("click", trade)
+br.addEventListener("click", trade)
 eun.addEventListener("click", trade)
 euw.addEventListener("click", trade)
 jp.addEventListener("click", trade)
@@ -31,12 +31,7 @@ tr.addEventListener("click", trade)
 
 function trade() {
     navigation.classList.toggle("active");
-
-    $(".menu_region li .title").click(function() {
-        var region = $(this).html();
-        $(".main_ul li span").html(region);
-        submit.value = region
-    })
+    submitRegion.value = this.innerText
 }
 
 document.querySelector("#search").onkeyup = function() {
@@ -62,4 +57,3 @@ document.querySelector("#search").onkeyup = function() {
         btn.classList.add("disabled");
     }
 }
-

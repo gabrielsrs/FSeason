@@ -46,22 +46,22 @@ class TimeCalculator:
         try:
             if self.month is False and self.day is False and self.hour is False:
                 if self.calc_month() > 0:
-                    return [self.calc_month(), "month"]
+                    return [self.calc_month(), "Mês"] if self.calc_month() > 1 else [self.calc_month(), "Meses"]
                 elif self.calc_day() > 0:
-                    return [self.calc_day(), "day"]
+                    return [self.calc_day(), "Dias"] if self.calc_day() > 1 else [self.calc_day(), "Dia"]
                 elif self.calc_day() == 0 and self.calc_hour() > 0:
-                    return [self.calc_hour(), "hour"]
+                    return [self.calc_hour(), "Horas"] if self.calc_hour() > 1 else [self.calc_hour(), "Hora"]
                 else:
                     return ["Terminada", "null"]
 
             elif self.month and self.calc_month() > 0:
-                return [self.calc_month(), "month"]
+                return [self.calc_month(), "Mês"] if self.calc_month() > 1 else [self.calc_month(), "Meses"]
 
             elif self.day and self.calc_day() > 0:
-                return [self.calc_day(), "day"]
+                return [self.calc_day(), "Dias"] if self.calc_day() > 1 else [self.calc_day(), "Dia"]
 
             elif self.hour and self.calc_hour() > 0:
-                return [self.calc_hour(), "hour"]
+                return [self.calc_hour(), "Horas"] if self.calc_hour() > 1 else [self.calc_hour(), "Hora"]
 
             else:
                 return ["Terminada", "null"]
