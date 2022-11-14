@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint
 
 from controllers.search_controller import search_controller
 from controllers.game_controller import game_controller
