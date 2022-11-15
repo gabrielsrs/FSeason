@@ -7,7 +7,7 @@ with app.app_context():
 
 if __name__ == "__main__":
     app.run(
-            debug=bool(app.config["FLASK_DEBUG"]),
+            debug=eval(app.config["FLASK_DEBUG"]),
             host=app.config["SERVER"],
             port=int(app.config["PORT"])
     )
