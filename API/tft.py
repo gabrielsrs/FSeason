@@ -1,6 +1,6 @@
 from services.time_calculator_service import TimeCalculator
 import requests
-from app import app
+from flask import current_app
 
 link_region = {
     "br": "https://br1.api.riotgames.com",
@@ -53,7 +53,7 @@ class Tft:
             url = requests.get(
                 f"{link_region[self.region.lower()]}/tft/summoner/v1/summoners/by-name/{self.name}",
                 headers={
-                    "X-Riot-Token": app.config["RIOT_KEY"]
+                    "X-Riot-Token": current_app.config["RIOT_KEY"]
                 }
             ).json()
 
@@ -66,7 +66,7 @@ class Tft:
             url_elo = requests.get(
                 f"{link_region[self.region.lower()]}/tft/league/v1/entries/by-summoner/{url['id']}",
                 headers={
-                    "X-Riot-Token": app.config["RIOT_KEY"]
+                    "X-Riot-Token": current_app.config["RIOT_KEY"]
                 }
             ).json()
 
