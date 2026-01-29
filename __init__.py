@@ -1,4 +1,6 @@
-from app import app
+from app import create_app
+
+app = create_app()
 
 with app.app_context():
     from routes import handle
@@ -7,7 +9,7 @@ with app.app_context():
 
 if __name__ == "__main__":
     app.run(
-            debug=bool(app.config["FLASK_DEBUG"]),
+            debug=eval(app.config["FLASK_DEBUG"]),
             host=app.config["SERVER"],
             port=int(app.config["PORT"])
     )
