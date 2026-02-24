@@ -6,7 +6,8 @@ def game_controller(game, region, name):
     result = None
 
     if game == "lol":
-        info_player = Lol(region=region, name=name)
+        game_name, tag_line = name.split("#")
+        info_player = Lol(region=region, game_name=game_name, tag_line=tag_line)
         result = info_player.actual_elo()
 
     elif game == "tft":
