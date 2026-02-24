@@ -32,13 +32,15 @@ images_elo = {
 
 class Lol:
 
-    def __init__(self, name, region):
-        self.name = name
+    def __init__(self, game_name, tag_line, region):
+        self.game_name = game_name
+        self.tag_line = tag_line
         self.region = region
 
     def actual_elo(self):
         items = {
-            "nickname": "",
+            "nickname": self.game_name,
+            "tag_name": self.tag_line ,
             "profile_icon": "",
             "solo_duo_rank": "Unranked",
             "solo_duo_tier": "default",
@@ -53,24 +55,33 @@ class Lol:
         }
 
         try:
-            url = requests.get(
-                f"{link_region[self.region.lower()]}/lol/summoner/v4/summoners/by-name/{self.name}",
+            account = requests.get(
+                f"https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{self.game_name}/{self.tag_line}",
                 headers={
                     "X-Riot-Token": current_app.config["RIOT_KEY"]
-                }
+                },
+                timeout=10
             ).json()
 
-            items["nickname"] = url["name"]
 
-            version = requests.get(f"https://ddragon.leagueoflegends.com/api/versions.json").json()
-            img_icon = f"http://ddragon.leagueoflegends.com/cdn/{version[0]}/img/profileicon/{url['profileIconId']}.png"
+            summoner = requests.get(
+                f"{link_region[self.region.lower()]}/lol/summoner/v4/summoners/by-puuid/{account['puuid']}",
+                headers={
+                    "X-Riot-Token": current_app.config["RIOT_KEY"]
+                },
+                timeout=10
+            ).json()
+
+            ddragon_current_version = requests.get("https://ddragon.leagueoflegends.com/api/versions.json", timeout=10).json()[0]
+            img_icon = f"http://ddragon.leagueoflegends.com/cdn/{ddragon_current_version}/img/profileicon/{summoner['profileIconId']}.png"
             items["profile_icon"] = img_icon
 
             url_elo = requests.get(
-                f"{link_region[self.region.lower()]}/lol/league/v4/entries/by-summoner/{url['id']}",
+                f"{link_region[self.region.lower()]}/lol/league/v4/entries/by-puuid/{account['puuid']}",
                 headers={
                     "X-Riot-Token": current_app.config["RIOT_KEY"]
-                }
+                },
+                timeout=10
             ).json()
 
             for json in url_elo:
