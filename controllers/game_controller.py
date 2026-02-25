@@ -11,7 +11,8 @@ def game_controller(game, region, name):
         result = info_player.actual_elo()
 
     elif game == "tft":
-        info_player = Tft(region=region, name=name)
+        game_name, tag_line = name.split("#")
+        info_player = Tft(region=region, game_name=game_name, tag_line=tag_line)
         result = info_player.actual_elo()
 
     if result is False:
